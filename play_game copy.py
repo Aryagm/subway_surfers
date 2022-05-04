@@ -1,3 +1,5 @@
+# Click here: https://www.kiloo.com/subway-surfers/
+
 import cv2
 import pyautogui
 from time import time
@@ -137,7 +139,7 @@ def checkHandsJoined(image, results, draw=False, display=False):
     
         # Return the output image and the classified hands status indicating whether the hands are joined or not.
         return output_image, hand_status
-    
+
 def checkLeftRight(image, results, draw=False, display=False):
     '''
     This function finds the horizontal position (left, center, right) of the person in an image.
@@ -208,7 +210,6 @@ def checkLeftRight(image, results, draw=False, display=False):
     
         # Return the output image and the person's horizontal position.
         return output_image, horizontal_position
-
 
 def checkJumpCrouch(image, results, MID_Y=250, draw=False, display=False):
     '''
@@ -335,7 +336,7 @@ while camera_video.isOpened():
     frame_height, frame_width, _ = frame.shape
     
     # Perform the pose detection on the frame.
-    f   
+    frame, results = detectPose(frame, pose_video, draw=game_started)
     
     # Check if the pose landmarks in the frame are detected.
     if results.pose_landmarks:
@@ -416,9 +417,9 @@ while camera_video.isOpened():
                 
                 # Otherwise if the game has started.
                 else:
-                    pass
+
                     # Press the space key.
-                    #pyautogui.press('space')
+                    pyautogui.press('space')
                 
                 #----------------------------------------------------------------------------------------------------------
                 
